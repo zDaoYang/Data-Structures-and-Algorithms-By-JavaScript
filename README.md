@@ -13,6 +13,6 @@
 ## 目录
 持续更新中，没添加到目录中的文件暂时还没整理
 
-1、[链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/tree/master/链表)
+1、[链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/linkedList.md)
 
 

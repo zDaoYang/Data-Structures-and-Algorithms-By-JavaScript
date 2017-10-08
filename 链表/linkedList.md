@@ -96,5 +96,5 @@ function LinkedList() {
   }
 }
 ```
-详细代码见目录下的[单链表.js](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/单链表.js)
+详细代码见目录下的[单链表.js](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%8D%95%E9%93%BE%E8%A1%A8.js)
 
