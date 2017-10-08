@@ -63,16 +63,7 @@ function LinkedList() {
     length--;
     return flag;
   }
-  this.indexOf = function (element) {
-    let current = head;
-    for (let i = 0; i < length; i++) {
-      if (current.element === element) {
-        return i;
-      }
-      current = current.next;
-    }
-    return -1;
-  }
+
   this.removeAt = function (position) {
     let result;
     if (position < 0 || position > length - 1) {
@@ -112,8 +103,6 @@ function LinkedList() {
   }
 }
 
-module.exports = LinkedList;
-
 /*
 let list1 = new LinkedList();
 console.log(list1.isEmpty());
@@ -122,6 +111,20 @@ list1.print();
 */
 
 
-
+var linkedList = {
+  head: {
+    val: 1,
+    next: {
+      val: 2,
+      next: {
+        val: 3,
+        next: {
+          val: 4,
+          next: null
+        }
+      }
+    }
+  }
+}
 
 

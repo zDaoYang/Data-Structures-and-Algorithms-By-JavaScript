@@ -18,24 +18,83 @@
 
 顺序存储里，元素是依次存放在连续的存储单元中的，而链式存储中，元素和元素是靠某种东西关联起来的，因此顺序存储里，每个元素除了要存储自己的数据信息之外，还要存储指向直接后继或者前驱元素的指针（JS里并没有指针这一说法，为了便于理解我借用了这个概念）。
 
-不多说废话，我们直接来看一下链表在JS里到底是个什么东西
+不多说废话，便于形象理解，我们直接来看一下链式存储的链表在JS里到底是个什么东西
 
 ```
 var linkedList = {
-  val: 1,
-  next: {
-    val: 2,
+  head: {
+    val: 1,
     next: {
-      val: 3,
+      val: 2,
       next: {
-        val: 4,
-        next: null
+        val: 3,
+        next: {
+          val: 4,
+          next: null
+        }
       }
     }
   }
 }
 ```
 
-是不是很简单呢，这个linkedList其实就是一个链式存储的链表，链表的最后一个元素的next指向null，代表链表到结尾了。
+是不是很简单呢，这个linkedList对象其实就是一个链式存储的链表，链表的最后一个元素的next指向null，代表链表到结尾了。
 
+### 单向链表
+单向链表的特点是每个元素只知道自己的下一个元素是什么，而不知道自己的上一个元素是什么。
+
+常规的链表属性有：
+- 长度 length
+- 头结点 head
+- ...
+
+常规的链表方法有：
+- 添加元素 append
+- 在特定位置插入元素 insert
+- 按值删除特定元素 remove
+- 删除指定位置的元素 removeAt
+- 判断链表是否为空 isEmpty
+- 返回头结点 getHead
+- 打印链表 print
+
+我们基于构造函数构造链表
+
+```
+function LinkedList() {
+  let length = 0;
+  let head = null;
+  let Node = function (element) {
+    this.element = element;
+    this.next = null;
+  }
+  this.append = function (element) {}...
+
+  this.insert = function (position, element) {}...
+
+  this.remove = function (element) {}...
+
+  this.removeAt = function (position) {}...
+
+  this.isEmpty = function () {
+    return length === 0;
+  }
+
+  this.size = function () {
+    return length;
+  }
+
+  this.print = function () {
+    let current = head;
+    while (current) {
+      console.log(current.element);
+      current = current.next;
+    }
+  }
+
+  this.getHead = function () {
+    return head;
+  }
+}
+```
+详细代码见目录下的[单链表.js](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/单链表.js)
 
