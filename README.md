@@ -11,6 +11,7 @@
 如果你已经掌握基本的数据结构和算法，那么你可以有针对性地进行查阅巩固。或者，直接略过吧。
 
 ## 目录
+持续更新中，没添加到目录中的文件暂时还没整理
 
 1、[链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/tree/master/链表)
 
