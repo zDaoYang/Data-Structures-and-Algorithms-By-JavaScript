@@ -1,6 +1,5 @@
 // Breadth first search
-// 广度优先算法
-// 构造一棵普通的二叉树
+
 var tree = {
   root: {
     key: 1,
