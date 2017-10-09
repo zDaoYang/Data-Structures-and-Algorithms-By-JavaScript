@@ -16,7 +16,7 @@
 1. [链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/linkedList.md)
 2. [队列](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/tree/master/%E9%98%9F%E5%88%97)
 3. [散列表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/tree/master/%E5%AD%97%E5%85%B8%E3%80%81%E6%95%A3%E5%88%97%E8%A1%A8)
-4. [树](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/tree/master/%E6%A0%91)
+4. [树](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E6%A0%91/tree.md)
 5. [图](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/tree/master/%E5%9B%BE)
 
 
