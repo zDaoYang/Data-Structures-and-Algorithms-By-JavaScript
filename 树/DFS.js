@@ -1,131 +1,164 @@
-// depth first search 
-// 深度优先遍历有三种：前序遍历，中序遍历，后序遍历
-function BinaryTree() {
-  var root = null;
-  function Node(key) {
-    this.key = key;
-    this.left = null;
-    this.right = null;
+// 前序遍历递归实现
+function preOrderRecur(root) {
+  if (arguments.length === 0 || !root) {
+    return false;
   }
+  var node = root;
+  if (node) {
+    console.log(node.val);
+    preOrderRecur(root.left);
+    preOrderRecur(root.right);
+  }
+}
+// 中序遍历递归实现
+function preOrderRecur(root) {
+  if (arguments.length === 0 || !root) {
+    return false;
+  }
+  var node = root;
+  if (node) {
+    preOrderRecur(root.left);
+    console.log(node.val);
+    preOrderRecur(root.right);
+  }
+}
+// 后序遍历递归实现
+function preOrderRecur(root) {
+  if (arguments.length === 0 || !root) {
+    return false;
+  }
+  var node = root;
+  if (node) {
+    preOrderRecur(root.left);
+    preOrderRecur(root.right);
+    console.log(node.val);
+  }
+}
 
-  // 根据前序，中序构造二叉树
-  this.pre_mid_constructor = function (preOrder, midOrder) {
-    function pre_mid(preOrder, midOrder) {
-      var rootKey = preOrder[0];
-      var root = new Node(rootKey);
-      var leftChildTreeLen = midOrder.indexOf(rootKey);
-      var rightChildTreeLen = midOrder.length - leftChildTreeLen - 1;
-      root.left = leftChildTreeLen <= 0 ? null : pre_mid(preOrder.slice(1, leftChildTreeLen + 1), midOrder.slice(0, leftChildTreeLen));
-      root.right = rightChildTreeLen <= 0 ? null : pre_mid(preOrder.slice(-rightChildTreeLen), midOrder.slice(-rightChildTreeLen));
-      return root;
-    }
-    root = pre_mid(preOrder, midOrder); // 将构建的新树的返回值，即新数的根节点赋值给该树的根节点
-  }
+/*
+递归实现很简单，也符合我们常规的逻辑，读起来也不费劲，重点来说下非递归实现，
+深度优先遍历的非递归都是借助栈的先进后出的特性来实现的
+*/
 
-  // 根据中序，后序构造二叉树
-  this.mid_post_constructor = function (midOrder, postOrder) {
-    function mid_post(midOrder, postOrder) {
-      var len = postOrder.length;
-      var rootKey = postOrder[len - 1];
-      var root = new Node(rootKey);
-      var leftChildTreeLen = midOrder.indexOf(rootKey);
-      var rightChildTreeLen = len - leftChildTreeLen - 1;
-      if (leftChildTreeLen <= 0) {
-        root.left = null;
-      } else {
-        root.left = mid_post(midOrder.slice(0, leftChildTreeLen), postOrder.slice(0, leftChildTreeLen));
-      }
-      if (rightChildTreeLen <= 0) {
-        root.right = null;
-      } else {
-        root.right = mid_post(midOrder.slice(-rightChildTreeLen), postOrder.slice(-(rightChildTreeLen + 1), -1));
-      }
-      return root;
-    }
-    root = mid_post(midOrder, postOrder);
-  }
-  
-  // 前序遍历(递归实现)
-  this.preOrderRecur = function () {
-    function preOrderRecurNode(node) {
-      if (node !== null) {
-        console.log(node.key);
-        preOrderRecurNode(node.left);
-        preOrderRecurNode(node.right);
-      }
-    }
-    return preOrderRecurNode(root);
-  }
 
-  // 前序遍历（非递归实现）
-  this.preOrerUnRecur = function () {
-    if (!root) {
-      console.log('empty tree');
+// 前序遍历非递归实现
+function preOrderUnRecur(root) {
+  if (arguments.length === 0 || !root) {
+    return false;
+  }
+  var stack = [], node = root;
+  stack.push(node);
+  while (stack.length) {
+    node = stack.pop();
+    console.log(node.val);
+    if (node.right) {
+      stack.push(node.right);  // 后打印的先进
+    }
+    if (node.left) {
+      stack.push(node.left); // 先打印的后进
+    }
+  }
+}
+// 中序遍历非递归实现
+function midOrderUnRecur(root) {
+  if (arguments.length === 0 || !root) {
+    return false;
+  }
+  var stack = [];
+  var node = root;
+  while (stack.length || node !== null) {
+    if (node) {
+      stack.push(node);
+      node = node.left;
     } else {
-      var stack = [];
-      stack.push(root);
-      while (stack.length !== 0) {
-        var node = stack.pop();
-        console.log(node.key);
-        if (node.right) { // 因为使用的是栈，所以left子树先入栈，这样left子树就会先出栈
-          stack.push(node.right);
-        }
-        if (node.left) {
-          stack.push(node.left);
-        }
-      }
+      node = stack.pop();
+      console.log(node.val);
+      node = node.right;
     }
   }
+}
 
-  // 中序遍历（递归实现）
-  this.midOrderRecur = function () {
-    function midOrderRecurNode(node) {
-      if (!node) {
-        return;
-      } else {
-        midOrderRecurNode(node.left);
-        console.log(node.key);
-        midOrderRecurNode(node.right);
-      }
+// 后续遍历非递归实现方法1（用两个栈）
+function postOrderUnRecur1(root) {
+  var stack1 = [];
+  var stack2 = [];
+  var node = root;
+  stack1.push(node);
+  while (stack1.length) {
+    var node = stack1.pop();
+    stack2.push(node.val);
+    if (node.left) {
+      stack1.push(node.left);
     }
-    if (!root) {
-      console.log('empty Tree');
-    } else {
-      return midOrderRecurNode(root);
+    if (node.right) {
+      stack1.push(node.right);
     }
   }
+  while (stack2.length) {
+    console.log(stack2.pop());
+  }
+}
 
-  // 中序遍历(非递归)
-  this.midOrderUnRecur = function () {
-    var node = root; //　避免直接修改root
-    if (!node) {
-      console.log('empty tree');
+// 后序遍历非递归实现方法2（用一个栈）
+function postOrderUnRecur2(root) {
+  var stack = [], last = root, top = null; //　last为最近一次打印的结点，top为当前栈顶元素
+  stack.push(root);
+  while (stack.length) {
+    top = stack[stack.length - 1];
+    if (top.left && last !== top.left && last !== top.right) {
+      stack.push(top.left);
+    } else if (top.right && last !== top.right) {
+      stack.push(top.right);
     } else {
-      var stack = [];
-      while (stack.length !== 0 || node) { //终止条件：当stack为空且node为null
-        if (node) {        // 一直向左下方向寻找左结点，如果还有左结点就一直push进栈
-          stack.push(node);
-          node = node.left;
-        } else { // 左结点全部进栈，开始输出
-          node = stack.pop(); //　由于是栈结构，pop出的第一个结点就是“最左”的那个结点
-          console.log(node.key);
-          node = node.right;
-        }
-      }
+      last = stack.pop();
+      console.log(last.val);
     }
   }
 
 }
-var tree1 = new BinaryTree();
-var tree2 = new BinaryTree();
-var preOrder = [1, 2, 4, 7, 3, 5, 6, 8];
-var midOrder = [4, 7, 2, 1, 5, 3, 8, 6];
-var postOrder = [7, 4, 2, 5, 8, 6, 3, 1];
-tree1.pre_mid_constructor(preOrder, midOrder);
-tree2.mid_post_constructor(midOrder, postOrder);
+var tree = {
+  val: 1,
+  left: {
+    val: 2,
+    left: {
+      val: 4,
+      left: {
+        val: 8,
+        left: null,
+        right: null
+      },
+      right: {
+        val: 9,
+        left: null,
+        right: null
+      }
+    },
+    right: {
+      val: 5,
+      left: null,
+      right: null
+    }
+  },
+  right: {
+    val: 3,
+    left: {
+      val: 6,
+      left: null,
+      right: null
+    },
+    right: {
+      val: 7,
+      left: null,
+      right: null
+    }
+  }
+}
 
-
-console.log('==midOrder递归====');
-tree2.midOrderRecur();
-console.log('==midOrder非递归====');
-tree2.midOrderUnRecur();
+console.log('===前序===');
+preOrderUnRecur(tree);
+console.log('===中序===');
+midOrderUnRecur(tree);
+console.log('===后序1===');
+postOrderUnRecur1(tree);
+console.log('===后序2===');
+postOrderUnRecur2(tree);

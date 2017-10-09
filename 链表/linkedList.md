@@ -20,7 +20,7 @@
 
 不多说废话，便于形象理解，我们直接来看一下链式存储的链表在JS里到底是个什么东西
 
-```
+```JS
 var linkedList = {
   head: {
     val: 1,
@@ -59,7 +59,7 @@ var linkedList = {
 
 我们基于构造函数构造链表
 
-```
+```js
 function LinkedList() {
   let length = 0;
   let head = null;
