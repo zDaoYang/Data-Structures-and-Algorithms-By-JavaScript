@@ -51,7 +51,7 @@ var linkedList = {
 常规的链表方法有：
 - 添加元素 append
 - 在特定位置插入元素 insert
-- 按值删除特定元素 remove
+- 按值删除特定元素，如果有多个相同的元素，删除第一个即可 remove
 - 删除指定位置的元素 removeAt
 - 判断链表是否为空 isEmpty
 - 返回头结点 getHead
