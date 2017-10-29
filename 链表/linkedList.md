@@ -104,10 +104,10 @@ function LinkedList() {
 双向链表的属性和方法和单向链表几乎是一模一样的，只是有些方法实现起来稍微有点不同，注意的东西也较单向链表多，这里就不再列举，请直接看代码
 
 
-代码[双向链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.js)
+[双向链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.js)
 
 ### 循环链表
 
 
 
-代码[循环链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.js)
+[循环链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.js)
