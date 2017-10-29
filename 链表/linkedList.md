@@ -98,3 +98,17 @@ function LinkedList() {
 ```
 详细代码见目录下的[单链表.js](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%8D%95%E9%93%BE%E8%A1%A8.js)
 
+### 双向链表
+单向链表实现了从头到尾遍历链表的功能，但是它的链接关系是单向的，我们只能朝一个方向遍历，如果指定一个结点，让我们求这个结点的上一个结点是什么，那么单向链表就无能为力了。这个时候就要用到双向链表，双向链表是在单向链表的基础上，为每个元素添加了一个指向上一个元素的指针prev，这样就既可以实现从头到尾的遍历，也可以实现从尾到头的遍历
+
+双向链表的属性和方法和单向链表几乎是一模一样的，只是有些方法实现起来稍微有点不同，注意的东西也较单向链表多，这里就不再列举，请直接看代码
+
+
+代码[双向链表](https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.js)
+
+### 循环链表
+
+
+
+代码[循环链表]
+(https://github.com/zDaoYang/Data-Structures-and-Algorithms-By-JavaScript/blob/master/%E9%93%BE%E8%A1%A8/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.js)
