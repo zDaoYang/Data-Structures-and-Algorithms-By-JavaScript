@@ -1,6 +1,5 @@
-
 // 根据前序，中序构造二叉树
-this.pre_mid_constructor = function (preOrder, midOrder) {
+this.pre_mid_constructor = function(preOrder, midOrder) {
   function pre_mid(preOrder, midOrder) {
     var rootKey = preOrder[0];
     var root = new Node(rootKey);
@@ -14,7 +13,7 @@ this.pre_mid_constructor = function (preOrder, midOrder) {
 }
 
 // 根据中序，后序构造二叉树
-this.mid_post_constructor = function (midOrder, postOrder) {
+this.mid_post_constructor = function(midOrder, postOrder) {
   function mid_post(midOrder, postOrder) {
     var len = postOrder.length;
     var rootKey = postOrder[len - 1];

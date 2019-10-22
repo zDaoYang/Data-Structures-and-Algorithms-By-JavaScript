@@ -59,7 +59,7 @@ function LinkedList() {
         flag = true;
         break;  // 一旦找要删除的结点，删除后即跳出循环
       }
-      previous = current;    
+      previous = current;
       current = current.next;
       index++;
     }
@@ -67,7 +67,7 @@ function LinkedList() {
     return flag;  // 返回删除是否成功（true or flase）
   }
 
-  this.removeAt = function (position) {  
+  this.removeAt = function (position) {
     let result;
     if (position < 0 || position > length - 1) {
       return null;  // 越界返回null
