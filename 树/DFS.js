@@ -46,13 +46,14 @@ function preOrderUnRecur(root) {
   if (arguments.length === 0 || !root) {
     return false;
   }
-  var stack = [], node = root;
+  var stack = [],
+    node = root;
   stack.push(node);
   while (stack.length) {
     node = stack.pop();
     console.log(node.val);
     if (node.right) {
-      stack.push(node.right);  // 后打印的先进
+      stack.push(node.right); // 后打印的先进
     }
     if (node.left) {
       stack.push(node.left); // 先打印的后进
@@ -101,7 +102,9 @@ function postOrderUnRecur1(root) {
 
 // 后序遍历非递归实现方法2（用一个栈）
 function postOrderUnRecur2(root) {
-  var stack = [], last = root, top = null; //　last为最近一次弹出并打印的结点，top为当前栈顶元素
+  var stack = [],
+    last = root,
+    top = null; //　last为最近一次弹出并打印的结点，top为当前栈顶元素
   stack.push(root);
   while (stack.length) {
     top = stack[stack.length - 1];
