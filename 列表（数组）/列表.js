@@ -17,7 +17,6 @@ class List {
   find(ele) {
     return this.dataStore.indexOf(ele)
   }
-
   //从列表中删除元素
   remove(ele) {
     const index = this.find(ele)
