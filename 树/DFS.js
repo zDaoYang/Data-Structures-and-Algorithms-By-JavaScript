@@ -1,38 +1,34 @@
 // 前序遍历递归实现
-function preOrderRecur(root) {
-  if (arguments.length === 0 || !root) {
-    return false;
+function preOrderRecur(node) {
+  if(!node) {
+    return
   }
-  var node = root;
-  if (node) {
-    console.log(node.val);
-    preOrderRecur(root.left);
-    preOrderRecur(root.right);
-  }
+
+  console.log(node.val);
+  preOrderRecur(node.left);
+  preOrderRecur(node.right);
 }
+
 // 中序遍历递归实现
-function preOrderRecur(root) {
-  if (arguments.length === 0 || !root) {
-    return false;
+function preOrderRecur(node) {
+  if(!node) {
+    return
   }
-  var node = root;
-  if (node) {
-    preOrderRecur(root.left);
-    console.log(node.val);
-    preOrderRecur(root.right);
-  }
+
+  preOrderRecur(node.left);
+  console.log(node.val);
+  preOrderRecur(node.right);
 }
 // 后序遍历递归实现
-function preOrderRecur(root) {
-  if (arguments.length === 0 || !root) {
-    return false;
+function preOrderRecur(node) {
+  if(!node) {
+    return
   }
-  var node = root;
-  if (node) {
-    preOrderRecur(root.left);
-    preOrderRecur(root.right);
-    console.log(node.val);
-  }
+
+  preOrderRecur(node.left);
+  preOrderRecur(node.right);
+  console.log(node.val);
+ 
 }
 
 /*
@@ -42,12 +38,11 @@ function preOrderRecur(root) {
 
 
 // 前序遍历非递归实现
-function preOrderUnRecur(root) {
-  if (arguments.length === 0 || !root) {
-    return false;
+function preOrderUnRecur(node) {
+  if (!node) {
+    return
   }
-  var stack = [],
-    node = root;
+  let stack = [] // 工具栈
   stack.push(node);
   while (stack.length) {
     node = stack.pop();
@@ -61,12 +56,11 @@ function preOrderUnRecur(root) {
   }
 }
 // 中序遍历非递归实现
-function midOrderUnRecur(root) {
-  if (arguments.length !== 1 || !root) {
-    return;
+function midOrderUnRecur(node) {
+  if (!node) {
+    return
   }
-  var stack = [];
-  var node = root;
+  let stack = [] // 工具栈
   while (stack.length || node) {
     if (node) {
       stack.push(node);
